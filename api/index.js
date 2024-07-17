@@ -22,6 +22,12 @@ mongoose
 const __dirname = path.resolve();
 
 const app = express();
+
+app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  next();
+});
+
 app.use(express.json());
 app.use(cookieParser());
 
